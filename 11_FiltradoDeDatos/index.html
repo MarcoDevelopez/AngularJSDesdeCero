@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="Agenda">
+<head>
+  <meta charset="UTF-8">
+  <title>Filtrado de Datos</title>
+  <script src="js/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="Controlador1">
+  <h1>Agenda Telefonica</h1>
+  <label>Buscar</label>
+  <input type="search" ng-model="busqueda">
+  <p ng-repeat="entrada in agenda | filter:busqueda">
+    {{entrada.nombre}} : {{entrada.telefono}}
+  </p>
+</div>
+
+<script>
+  var miApp = angular.module('Agenda', []);
+  miApp.controller('Controlador1', ['$scope', function ($scope) {
+    $scope.agenda = [
+      {nombre: 'Juan', telefono: '01-784-5454'},
+      {nombre: 'Pedro', telefono: '02-213-4453'},
+      {nombre: 'Marco', telefono: '03-212-7898'},
+      {nombre: 'Lucas', telefono: '01-121-0121'},
+      {nombre: 'Edison', telefono: '01-987-1574'},
+      {nombre: 'Oscar', telefono: '01-484-0015'},
+      {nombre: 'Carlos', telefono: '01-454-5454'}
+    ]
+  }])
+</script>
+
+</body>
+</html>

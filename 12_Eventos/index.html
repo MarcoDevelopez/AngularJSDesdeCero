@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="MiApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos en AngularJS</title>
+  <script src="js/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="Controlador1">
+  <button ng-click="clickSimple()">Click</button>
+  <button ng-dblclick="clickDoble()">Doble Click</button>
+  <img src="imagen1.jpg" ng-mouseleave="mouseDejaLaImagen()" ng-mouseenter="mouseSobreLaImagen()">
+  <h1>{{evento}}</h1>
+</div>
+
+<script>
+  var miApp = angular.module('MiApp', []);
+  
+  miApp.controller('Controlador1', ['$scope', function ($scope) {
+    $scope.clickSimple = function () {
+      $scope.evento = "click";
+    }
+    
+    $scope.clickDoble = function () {
+      $scope.evento = "doble";
+    }
+    
+    $scope.mouseDejaLaImagen = function () {
+      $scope.evento = "Mouse sale de la imagen";
+    }
+    
+    $scope.mouseSobreLaImagen = function () {
+      $scope.evento = "Mouse entra la imagen";
+    }
+  }])
+</script>
+
+</body>
+</html>

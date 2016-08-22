@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="MiApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Colecciones de Datos</title>
+  <script src="js/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="Controlador1">
+    <h1>Nombres</h1>
+    <ul>
+      <li ng-repeat="nombreIndividual in nombresSimples">
+        {{nombreIndividual}}
+      </li>
+    </ul>
+    
+    <h1>Heroes de Accion</h1>
+    <ul>
+      <li ng-repeat="heroe in heroes">
+        {{heroe.nombre}} {{heroe.apellido}}
+      </li>
+    </ul>
+  </div>
+  <script>
+    var miApp = angular.module('MiApp', []);
+    miApp.controller('Controlador1', ['$scope', function ($scope) {
+      $scope.nombresSimples = ['Alois', 'Gardenzio', 'Carlos'];
+      $scope.heroes = [
+        {nombre: "Arnold", apellido: "Schwarzenegger"},
+        {nombre: "Silvester", apellido: "Stallone"},
+        {nombre: "Chuck", apellido: "Norris"}
+      ]
+    }])
+  </script>
+</body>
+</html>

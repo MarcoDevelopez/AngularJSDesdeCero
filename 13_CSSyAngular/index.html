@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="MiApp">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS y AngularJS</title>
+  <script src="js/angular.min.js"></script>
+  <style>
+    .angular {
+      background: #ff7142;
+      font-size: 40px;
+      padding: 0 40px;
+      color: #f6fffd;
+    }
+  </style>
+</head>
+<body>
+
+<div ng-controller="Controlador1">
+  <div class="contenedor">
+    <p ng-style="estilos">
+      Yo controlo el estilo de mis aplicaciones <span ng-class="claseEspecial">AngularJS</span>
+    </p>
+  </div>
+  <button ng-click="cambiarPropiedades()">Cambiar propiedades</button>
+  <button ng-click="cambiarClases()">Cambiar clases</button>
+  <button ng-click="reiniciarClases()">Eliminar estilos</button>
+</div>
+
+<script>
+  var miApp = angular.module('MiApp', []);
+  miApp.controller('Controlador1', ['$scope', function ($scope) {
+    $scope.cambiarPropiedades = function () {
+      $scope.estilos = {
+        'background': 'blue',
+        'color': 'yellow'
+      }
+    }
+    
+    $scope.cambiarClases = function () {
+      $scope.claseEspecial = 'angular'
+    }
+    
+    $scope.reiniciarClases = function () {
+      $scope.estilos = '';
+      $scope.claseEspecial = '';
+    }
+  }])
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="MiApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Intercambiando imagenes en AngularJs</title>
+  <script src="js/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="Controlador1">
+  <img ng-src="{{imagenActual}}">
+  <br>
+  <button ng-click="mostrarImagen('imagen1.jpg')">Imagen 1</button>
+  <button ng-click="mostrarImagen('imagen2.jpg')">Imagen 2</button>
+</div>
+
+<script>
+  var miApp = angular.module('MiApp', []);
+  miApp.controller('Controlador1', ['$scope', function ($scope) {
+    
+    $scope.imagenActual = 'imagen1.jpg';
+    
+    $scope.mostrarImagen = function (_imagen) {
+      $scope.imagenActual = _imagen;
+    }
+  }])
+</script>
+
+</body>
+</html>

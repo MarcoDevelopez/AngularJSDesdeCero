@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="MiApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Mostrar u Ocultar elementos en AngularJS</title>
+  <script src="js/angular.min.js"></script>
+  <style>
+    .alerta {
+      font-size:18px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<div ng-controller="Controlador1">
+  <button ng-click="mostrar()">Revelar Secreto</button>
+  <button ng-click="ocultar()">Volver al misterio</button>
+  <div ng-show="visibilidadMensaje" class="alerta">
+    Este es un mensaje secreto
+  </div>
+</div>
+
+<script>
+  var miApp = angular.module('MiApp', []);
+  miApp.controller('Controlador1', ['$scope', function ($scope) {
+    $scope.visibilidadMensaje = false;
+    
+    $scope.mostrar = function () {
+      $scope.visibilidadMensaje = true;
+    }
+    
+    $scope.ocultar = function () {
+      $scope.visibilidadMensaje = false;
+    }
+  }])
+  
+</script>
+
+</body>
+</html>

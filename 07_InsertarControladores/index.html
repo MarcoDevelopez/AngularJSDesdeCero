@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="TiendaDeFruta">
+<head>
+  <meta charset="UTF-8">
+  <title>Insertar Controladores en AngularJS</title>
+  <script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="Controlador1">
+  <h1>¡Promocion de Mangos!</h1>
+  <h2>$2.15 cada uno</h2>
+
+  <label>Cantidad de Mangos</label>
+  <input type="text" ng-model="cantidad">
+  <br>
+  Precio Total: {{cantidad * precio | currency}}
+</div>
+
+<script>
+  var miAplicacion = angular.module('TiendaDeFruta', []);
+  miAplicacion.controller('Controlador1', ['$scope', function ($scope) {
+    $scope.cantidad = 0;
+    $scope.precio   = 2.15;
+  }]);
+</script>
+</body>
+</html>
