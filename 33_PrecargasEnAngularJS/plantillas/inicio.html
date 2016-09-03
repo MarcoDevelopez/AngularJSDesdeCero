@@ -1,0 +1,21 @@
+<h1>Listado de Empleados</h1>
+
+<div class="precarga" ng-hide="empleados">
+  <i class="fa fa-spinner fa-spin fa-5x"></i>
+</div>
+
+<div class="lista-empleados" ng-show="empleados">
+  
+  <input type="text" ng-model="busqueda" class="form-control">
+  <br>
+  <smal>Buscando {{busqueda}}</smal>
+  
+  <div ng-repeat="empleado in empleados | filter:busqueda">
+    <div ng-click="verDetalles(empleado.id)">
+      <div class="col-sm-10">
+        <h3>{{empleado.username}} - {{empleado.email}}</h3>
+        <small>{{empleado.address}}</small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="col-sm-8">
+  <h1>Editar datos de {{empleado.username}}</h1>
+  
+  <label>Nombre</label>
+  <input type="text" ng-model="empleado.username" class="form-control">
+  <br>
+  <label>Email</label>
+  <input type="email" ng-model="empleado.email" class="form-control">
+  <br>
+  <button ng-click="guardarInfo()" class="btn btn-primary">Guardar</button>
+</div>
